@@ -40,17 +40,25 @@ class PCA_IterativeSimple:
         X = copy.deepcopy(model.data)
         util.make_zero_mean(X)
         W = []
+        w = []
 
         for i in range(L):
             eigval, eigvec = self._largest_cov_eig(X)
             W += [eigvec]
+            w += [eigval]
             util.deflate(X, eigvec)
 
         W = numpy.transpose(numpy.array(W))
         T = numpy.matmul(model.data, W)
         model.transformation_matrix = W
         model.transformed_data = T
-        model.cumulative_energy = None
+
+        # we can assume all other eigenvalues are less than the smallest one
+        total = sum(w)
+        smallest = w[-1]
+        left = X.shape[1] - L
+        max_possible = total + smallest * left
+        model.cumulative_energy = total / max_possible
 
     # requires mean zero matrix
     def _largest_cov_eig(self, X):
