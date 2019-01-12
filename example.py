@@ -1,5 +1,5 @@
 from dimred.model import LinearDimensionalityReduction
-from dimred.solver import *
+from dimred.algo import *
 from dimred.util import *
 
 import numpy
@@ -17,17 +17,29 @@ def z_scores(a,axis=-1):
     return (b-mu)/sigma
 
 def ex(X, L):
-    result1 = LinearDimensionalityReduction(PCA_ExplicitCov(10, 0.0001), X, L)
-    result2 = LinearDimensionalityReduction(PCA_IterativeSimple(10, 0.0001), X, L)
-    print(result1.transformation_matrix)
-    print(result2.transformation_matrix)
-    print("\n")
-    print(result1.transformed_data)
-    print(result2.transformed_data)
-    print("\n")
-    print(result1.cumulative_energy)
-    print(result2.cumulative_energy)
-    print("\n")
+    results = {
+        "PCA_EVD" : LinearDimensionalityReduction(PCA_EVD(10, 0.0001), X.copy(), L),
+        "PCA_POWER" : LinearDimensionalityReduction(PCA_POWER(10, 0.0001), X.copy(), L),
+        "PCA_SVD" : LinearDimensionalityReduction(PCA_SVD(10, 0.0001), X.copy(), L),
+    }
+
+    for name, result in results.items():
+        print('Transformation matrix for {}'.format(name))
+        print(result.transformation_matrix)
+        print('\n')
+    print('\n')
+
+    for name, result in results.items():
+        print('Transformed data for {}'.format(name))
+        print(result.transformed_data)
+        print('\n')
+    print('\n')
+
+    for name, result in results.items():
+        print('Cumulative energy for {}'.format(name))
+        print(result.cumulative_energy)
+        print('\n')
+    print('\n')
 
 def ex1():
     X = numpy.array([

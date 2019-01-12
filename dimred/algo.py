@@ -2,7 +2,52 @@ import numpy
 from . import util
 import copy
 
-class PCA_ExplicitCov:
+class PCA_SVD:
+    '''
+    Given n x n data matrix X and the final number of dimensions p:
+        - performs Singular Value Decomposition on X
+        - extracts p eigenvectors of C = X^T X from the result of SVD
+        - transforms the data
+    '''
+
+    def __init__(self, max_iter, tolerance):
+        self.max_iter = max_iter
+        self.tolerance = tolerance
+
+    def apply(self, model):
+        X = model.data
+        L = model.dims
+
+        w, V = self._cov_eig_sorted(model);
+
+        W = numpy.transpose(V[0:L])
+        #Z = z_scores(X) #???
+        T = numpy.matmul(X, W)
+
+        model.transformation_matrix = W
+        model.transformed_data = T
+        cumsum = numpy.cumsum(w)
+        model.cumulative_energy = cumsum[L-1] / cumsum[-1]
+
+    def _cov_eig_sorted(self, model):
+        X = copy.deepcopy(model.data)
+        L = model.dims
+        # X must be zero mean
+        util.make_zero_mean(X)
+        u, s, vh = numpy.linalg.svd(X)
+        # s contains squared eigenvalues (from the highest)
+        # vh contains eigenvectors in rows
+        return numpy.square(s), vh
+
+class PCA_EVD:
+    '''
+    Given n x n data matrix X and the final number of dimensions p:
+        - directly computes the covariance matrix C of X (C = X^T X)
+        - performs Eigen Value Decomposition on C
+        - extracts p eigenvectors of C
+        - transforms the data
+    '''
+
     def __init__(self, max_iter, tolerance):
         self.max_iter = max_iter
         self.tolerance = tolerance
@@ -30,7 +75,20 @@ class PCA_ExplicitCov:
         return w, V
 
 
-class PCA_IterativeSimple:
+class PCA_POWER:
+    '''
+    Given n x n data matrix X and the final number of dimensions p:
+        - p times:
+            - computes the eigenvector v associated with the highest eigenvalue
+              using power iteration algorithm, without explicitly computing
+              the covariance matrix of X
+            - performs deflation of X using v
+        - transforms the data
+
+    Since the process doesn't compute all eigenvalues the cumulative energy
+    of the reduction is only the lower bound.
+    '''
+
     def __init__(self, max_iter, tolerance):
         self.max_iter = max_iter
         self.tolerance = tolerance
