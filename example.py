@@ -18,9 +18,10 @@ def z_scores(a,axis=-1):
 
 def ex(X, L):
     results = {
-        "PCA_EVD" : LinearDimensionalityReduction(PCA_EVD(10, 0.0001), X.copy(), L),
-        "PCA_POWER" : LinearDimensionalityReduction(PCA_POWER(10, 0.0001), X.copy(), L),
-        "PCA_SVD" : LinearDimensionalityReduction(PCA_SVD(10, 0.0001), X.copy(), L),
+        "PCA_EVD" : LinearDimensionalityReduction(PCA_EVD(10, 0.0001), X, L),
+        "PCA_Power" : LinearDimensionalityReduction(PCA_Power(10, 0.0001), X, L),
+        "PCA_SVD" : LinearDimensionalityReduction(PCA_SVD(10, 0.0001), X, L),
+        "PCA_Lanczos" : LinearDimensionalityReduction(PCA_Lanczos(10, 0.0001), X, L),
     }
 
     for name, result in results.items():
@@ -56,8 +57,8 @@ def ex2():
         [2., 0., 0.],
         [3., 0., 0.],
         [0., 1., 0.],
-        [0., 2., 0.],
-        [0., 3., 0.]
+        [0., 4., 0.],
+        [0., 7., 0.]
         ])
     ex(X, 2)
 
