@@ -26,3 +26,22 @@ def make_zero_mean(X):
 def deflate(X, eigvec):
     #http://theory.stanford.edu/~tim/s15/l/l8.pdf
     X -= numpy.array([eigvec*numpy.dot(x, eigvec) for x in X])
+
+def dataReader(filename):
+    matrixRows=[]
+    stringLines=[]
+    matrix=[]
+    with open("src/"+filename,"r") as file:
+        stringLines=file.read().splitlines()
+    for line in stringLines:
+        row=[]
+        rowString=line.split(",")
+        for sNumber in rowString:
+            if (sNumber=="?"):
+                row.append(1)
+            else:
+                row.append(float(sNumber))
+        matrix.append(row)
+    #endfor
+    print("\n\n\n\n\n\nfinished function\n\n\n\n\n\n\n")
+    return matrix

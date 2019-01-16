@@ -62,8 +62,16 @@ def ex2():
         ])
     ex(X, 2)
 
+
+def testRead():
+    X=dataReader("testData1.txt")
+    for row in X:
+        print(row)
+
+
 def main():
+    testRead()
     #ex1()
-    ex2()
+    #ex2()
 
 main()
