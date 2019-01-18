@@ -69,8 +69,21 @@ def testRead():
         print(row)
 
 
+def testGenerateCorrelatedRandomMatrix(x,y):
+    X=getCorrelatedRandomDataMatrix(x,y)
+    for row in X:
+        print(row)
+
+def testGetUncorrelatedRandomMatrix(x,y):
+    X=getUncorrelatedRandomDataMatrix(x,y)
+    for row in X:
+        print(row)
+
 def main():
-    testRead()
+    testGenerateCorrelatedRandomMatrix(20,3)
+    print("\n")
+    testGetUncorrelatedRandomMatrix(20,3)
+    #testRead()
     #ex1()
     #ex2()
 
