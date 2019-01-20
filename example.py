@@ -63,6 +63,19 @@ def ex2():
     ex(X, 2)
 
 
+def testFa():
+    X = numpy.array([
+        [1., 0., 0.],
+        [2., 0., 0.],
+        [3., 0., 0.],
+        [0., 1., 0.],
+        [0., 4., 0.],
+        [0., 7., 0.]
+        ])
+    print(sklearnLibraryFA(X,70))
+
+
+
 def testRead():
     X=dataReader("testData1.txt")
     for row in X:
@@ -80,11 +93,11 @@ def testGetUncorrelatedRandomMatrix(x,y):
         print(row)
 
 def main():
-    testGenerateCorrelatedRandomMatrix(20,3)
-    print("\n")
-    testGetUncorrelatedRandomMatrix(20,3)
+    #testGenerateCorrelatedRandomMatrix(20,3)
+    #print("\n")
+    #testGetUncorrelatedRandomMatrix(20,3)
     #testRead()
     #ex1()
     #ex2()
-
+    testFa()
 main()

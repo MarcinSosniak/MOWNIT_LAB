@@ -1,5 +1,6 @@
 import numpy
 from . import util
+import sklearn.decomposition
 import copy
 
 class PCA_SVD:
@@ -226,3 +227,9 @@ class PCA_Lanczos:
         V = numpy.matmul(Q, V)
 
         return util.sorted_eig_desc(w, V)
+
+
+def sklearnLibraryFA(X,tolerance):
+    FAnaliser=sklearn.decomposition.FactorAnalysis(tol=1-tolerance,copy=True,max_iter=1000)
+    out=FAnaliser.fit_transform(numpy.array(X))
+    return out

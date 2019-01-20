@@ -71,4 +71,4 @@ def getCorrelatedRandomDataMatrix(rows,cols):
         #endfor
         outMatrix.append(row)
     #endfor
-    return  outMatrix
+    return  numpy.array(outMatrix)
