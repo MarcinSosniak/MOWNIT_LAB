@@ -224,6 +224,54 @@ def pca_lanczos(X, L, m=2.0):
 
     return model
 
+def pca_nipals(X, L, max_inner_iter, tolerance):
+    '''
+    https://cdn1.sph.harvard.edu/wp-content/uploads/sites/1056/2012/10/Supplemental_Information.pdf
+    https://i.stack.imgur.com/SdQn1.png
+
+    Given n x n data matrix X and the final number of dimensions L:
+        - L times
+            - approximate the biggest eigenvector of cov(X)
+            - deflate X
+    '''
+
+    model = LinearDimensionalityReductionResult()
+    model.data = X
+    model.dims = L
+
+    X = copy.deepcopy(X)
+    util.make_zero_mean(X)
+    W = []
+    w = []
+
+    t = X[:,0]
+    for i in range(L):
+        for j in range(max_inner_iter):
+            p = numpy.matmul(X.T, t) / numpy.dot(t, t)
+            p = p / numpy.linalg.norm(p)
+            t_new = numpy.matmul(X, p)
+            diff = t - t_new
+            t = t_new
+            if numpy.sum(numpy.dot(diff, diff)) < tolerance:
+                break
+
+        W += [p]
+        w += [numpy.dot(t, t)]
+        X -= numpy.outer(t, p)
+
+    W = numpy.transpose(numpy.array(W))
+    T = numpy.matmul(model.data, W)
+    model.transformation_matrix = W
+    model.transformed_data = T
+
+    # we can assume all other eigenvalues are less than the smallest one
+    total = sum(w)
+    smallest = w[-1]
+    left = X.shape[1] - L
+    max_possible = total + smallest * left
+    model.cumulative_energy = total / max_possible
+
+    return model
 
 
 def sklearnLibraryFA(X,tolerance):

@@ -21,6 +21,7 @@ def ex(X, L):
         "PCA_Power" : pca_power(X, L, 10, 0.0001),
         "PCA_SVD" : pca_svd(X, L),
         "PCA_Lanczos" : pca_lanczos(X, L),
+        "PCA_NIPALS" : pca_nipals(X, L, 10, 0.0001),
     }
 
     for name, result in results.items():
