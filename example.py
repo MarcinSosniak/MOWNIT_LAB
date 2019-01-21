@@ -1,4 +1,3 @@
-from dimred.model import LinearDimensionalityReduction
 from dimred.algo import *
 from dimred.util import *
 
@@ -18,10 +17,10 @@ def z_scores(a,axis=-1):
 
 def ex(X, L):
     results = {
-        "PCA_EVD" : LinearDimensionalityReduction(PCA_EVD(10, 0.0001), X, L),
-        "PCA_Power" : LinearDimensionalityReduction(PCA_Power(10, 0.0001), X, L),
-        "PCA_SVD" : LinearDimensionalityReduction(PCA_SVD(10, 0.0001), X, L),
-        "PCA_Lanczos" : LinearDimensionalityReduction(PCA_Lanczos(10, 0.0001), X, L),
+        "PCA_EVD" : pca_evd(X, L),
+        "PCA_Power" : pca_power(X, L, 10, 0.0001),
+        "PCA_SVD" : pca_svd(X, L),
+        "PCA_Lanczos" : pca_lanczos(X, L),
     }
 
     for name, result in results.items():
@@ -98,6 +97,6 @@ def main():
     #testGetUncorrelatedRandomMatrix(20,3)
     #testRead()
     #ex1()
-    #ex2()
-    testFa()
+    ex2()
+    #testFa()
 main()
