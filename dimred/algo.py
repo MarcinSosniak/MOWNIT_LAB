@@ -206,7 +206,8 @@ def pca_lanczos(X, L, m=2.0):
 
     # X must be zero mean
     util.make_zero_mean(X)
-    w, V = _cov_eig_sorted(X, round(L*m));
+    p = round(L*m)
+    w, V = _cov_eig_sorted(X, p);
 
     W = V[:, 0:L]
     #Z = z_scores(X) #???
@@ -216,8 +217,8 @@ def pca_lanczos(X, L, m=2.0):
     model.transformed_data = T
 
     # we can assume all other eigenvalues are less than the smallest one
-    total = sum(w)
-    smallest = w[-1]
+    total = sum(w[:L])
+    smallest = w[L] if p > L else w[L-1]
     left = X.shape[1] - L
     max_possible = total + smallest * left
     model.cumulative_energy = total / max_possible
