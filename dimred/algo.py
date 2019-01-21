@@ -244,8 +244,8 @@ def pca_nipals(X, L, max_inner_iter, tolerance):
     W = []
     w = []
 
-    t = X[:,0]
     for i in range(L):
+        t = X[:,0]
         for j in range(max_inner_iter):
             p = numpy.matmul(X.T, t) / numpy.dot(t, t)
             p = p / numpy.linalg.norm(p)
