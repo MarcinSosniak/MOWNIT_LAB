@@ -1,6 +1,6 @@
 from dimred.algo import *
 from dimred.util import *
-
+from dimred.measure import *
 import numpy
 
 def sort_eig(w, v):
@@ -77,7 +77,8 @@ def testFa():
 
 
 def testRead():
-    X=dataReader("testData1.txt")
+    X=dataReader("readTest.txt")
+    runWithTimeAndWriteDown("src/SaveTest",pca_svd,X,2)
     for row in X:
         print(row)
 
@@ -92,12 +93,22 @@ def testGetUncorrelatedRandomMatrix(x,y):
     for row in X:
         print(row)
 
+
+
+def runTests():
+    X=dataReader("testData1.txt")
+    testAll("src/firstTest_.txt",X)
+
+
+
+
 def main():
     #testGenerateCorrelatedRandomMatrix(20,3)
     #print("\n")
     #testGetUncorrelatedRandomMatrix(20,3)
+    runTests()
     #testRead()
     #ex1()
-    ex2()
+    #ex2()
     #testFa()
 main()

@@ -1,4 +1,5 @@
 import numpy
+import time
 
 def sorted_eig_desc(w, v):
     idx = w.argsort()[::-1]
@@ -44,7 +45,7 @@ def dataReader(filename):
         matrix.append(row)
     #endfor
     print("\n\n\n\n\n\nfinished function\n\n\n\n\n\n\n")
-    return matrix
+    return numpy.array(matrix)
 
 def copyMatrix(X):
     outMatrix=[]

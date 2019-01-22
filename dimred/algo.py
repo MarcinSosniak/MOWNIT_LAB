@@ -3,6 +3,7 @@ from . import util
 import sklearn.decomposition
 import copy
 
+
 class LinearDimensionalityReductionResult:
     def __init__(self):
         pass
