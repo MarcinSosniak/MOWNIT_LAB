@@ -1,0 +1,31 @@
+
+
+another speed test
+
+
+
+another speed test
+
+PCA SVD test time:0.1093909740447998 dim: 5 cumulative energy: 0.9498634869251112
+PCA EVD test time:0.0 dim: 5 cumulative energy: 0.9498634869251114
+PCA POWER test time:11.936859846115112 dim: 5 cumulative energy: 0.7536722644303924
+PCA LANCHOS test time:0.11647725105285645 dim: 5 cumulative energy: 0.8909919485190944
+PCA NIPALS test time:0.07813811302185059 dim: 5 cumulative energy: 0.7536722340523369
+FA test time:0.031281232833862305 dim: 5 cumulative energy: 0
+
+
+--------------------------------------------------------------------------------
+
+
+speedTest with rows=100 desiredCols= 5cols= 8
+
+
+--------------------------------------------------------------------------------
+
+
+PCA SVD test time:0.09377217292785645 dim: 5 cumulative energy: 0.9300667291551615
+PCA EVD test time:0.0 dim: 5 cumulative energy: 0.9300667291551616
+PCA POWER test time:6.082097053527832 dim: 5 cumulative energy: 0.8050990465027156
+PCA LANCHOS test time:0.6136324405670166 dim: 5 cumulative energy: 0.846080184691223
+PCA NIPALS test time:0.06417012214660645 dim: 5 cumulative energy: 0.8050934126382565
+FA test time:0.10026836395263672 dim: 5 cumulative energy: -1

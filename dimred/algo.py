@@ -276,7 +276,12 @@ def pca_nipals(X, L, max_inner_iter, tolerance):
     return model
 
 
-def sklearnLibraryFA(X,tolerance):
-    FAnaliser=sklearn.decomposition.FactorAnalysis(tol=1-tolerance,copy=True,max_iter=1000)
-    out=FAnaliser.fit_transform(numpy.array(X))
-    return out
+def sklearnLibraryFA(X,L):
+    FAnaliser=sklearn.decomposition.FactorAnalysis(n_components=L,copy=True,max_iter=1000)
+    out=FAnaliser.fit_transform(X)
+    model = LinearDimensionalityReductionResult()
+    model.dims=L
+    model.data=X
+    model.transformed_data=out
+    model.cumulative_energy=-1
+    return model

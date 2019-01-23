@@ -1,0 +1,54 @@
+PCA SVD test time:0.04005265235900879 dim: 1 cumulative energy: 0.9999999998133047
+PCA EVD test time:0.00404667854309082 dim: 1 cumulative energy: 0.9999999998133049
+PCA POWER test time:0.04408526420593262 dim: 1 cumulative energy: 0.09090909090909091
+PCA LANCHOS test time:0.01602458953857422 dim: 1 cumulative energy: 0.9999999992249416
+PCA NIPALS test time:0.0 dim: 1 cumulative energy: 0.09090909090909091
+FA test time:0.028039932250976562 dim: 1 cumulative energy: -1
+PCA SVD test time:0.028030872344970703 dim: 2 cumulative energy: 0.999999999942106
+PCA EVD test time:0.0039937496185302734 dim: 2 cumulative energy: 0.9999999999421062
+PCA POWER test time:0.09207820892333984 dim: 2 cumulative energy: 0.9999999988407885
+PCA LANCHOS test time:0.04004812240600586 dim: 2 cumulative energy: 0.9999999998191282
+PCA NIPALS test time:0.0 dim: 2 cumulative energy: 0.9999999988407886
+FA test time:0.052071332931518555 dim: 2 cumulative energy: -1
+PCA SVD test time:0.028037071228027344 dim: 3 cumulative energy: 0.9999999999556578
+PCA EVD test time:0.0 dim: 3 cumulative energy: 0.999999999955658
+PCA POWER test time:0.4045381546020508 dim: 3 cumulative energy: 0.999999999891585
+PCA LANCHOS test time:0.05242490768432617 dim: 3 cumulative energy: 0.999999999928867
+PCA NIPALS test time:0.004143953323364258 dim: 3 cumulative energy: 0.9999999998916391
+FA test time:0.19904661178588867 dim: 3 cumulative energy: -1
+PCA SVD test time:0.024031639099121094 dim: 4 cumulative energy: 0.9999999999669261
+PCA EVD test time:0.0 dim: 4 cumulative energy: 0.9999999999669262
+PCA POWER test time:1.0639300346374512 dim: 4 cumulative energy: 0.9999999999211221
+PCA LANCHOS test time:0.1041402816772461 dim: 4 cumulative energy: 0.9999999999469215
+PCA NIPALS test time:0.01201772689819336 dim: 4 cumulative energy: 0.9999999999211356
+FA test time:0.0801386833190918 dim: 4 cumulative energy: -1
+PCA SVD test time:0.02800464630126953 dim: 5 cumulative energy: 0.9999999999750683
+PCA EVD test time:0.0 dim: 5 cumulative energy: 0.9999999999750684
+PCA POWER test time:1.3938548564910889 dim: 5 cumulative energy: 0.9999999999511472
+PCA LANCHOS test time:0.1081397533416748 dim: 5 cumulative energy: 0.9999999999569416
+PCA NIPALS test time:0.008010149002075195 dim: 5 cumulative energy: 0.9999999999512196
+FA test time:0.06408500671386719 dim: 5 cumulative energy: -1
+PCA SVD test time:0.02002692222595215 dim: 6 cumulative energy: 0.9999999999822454
+PCA EVD test time:0.0 dim: 6 cumulative energy: 0.9999999999822456
+PCA POWER test time:1.5594470500946045 dim: 6 cumulative energy: 0.9999999999641139
+PCA LANCHOS test time:0.10736632347106934 dim: 6 cumulative energy: 0.9999999999679013
+PCA NIPALS test time:0.01565384864807129 dim: 6 cumulative energy: 0.9999999999641369
+FA test time:0.0781702995300293 dim: 6 cumulative energy: -1
+PCA SVD test time:0.015590429306030273 dim: 7 cumulative energy: 0.999999999988665
+PCA EVD test time:0.0 dim: 7 cumulative energy: 0.9999999999886651
+PCA POWER test time:1.6941516399383545 dim: 7 cumulative energy: 0.9999999999743221
+PCA LANCHOS test time:0.11406064033508301 dim: 7 cumulative energy: 0.9999999999813407
+PCA NIPALS test time:0.0 dim: 7 cumulative energy: 0.9999999999742467
+FA test time:0.07594895362854004 dim: 7 cumulative energy: -1
+PCA SVD test time:0.03125643730163574 dim: 8 cumulative energy: 0.9999999999933298
+PCA EVD test time:0.0 dim: 8 cumulative energy: 0.99999999999333
+PCA POWER test time:1.5698368549346924 dim: 8 cumulative energy: 0.9999999999860055
+PCA LANCHOS test time:0.10413765907287598 dim: 8 cumulative energy: 0.9999999999874396
+PCA NIPALS test time:0.008034944534301758 dim: 8 cumulative energy: 0.9999999999860645
+FA test time:0.03173017501831055 dim: 8 cumulative energy: -1
+PCA SVD test time:0.015623092651367188 dim: 9 cumulative energy: 0.9999999999975157
+PCA EVD test time:0.0 dim: 9 cumulative energy: 0.9999999999975159
+PCA POWER test time:2.9218780994415283 dim: 9 cumulative energy: 0.9999999999916283
+PCA LANCHOS test time:0.07166695594787598 dim: 9 cumulative energy: 0.9999999999957847
+PCA NIPALS test time:0.015657424926757812 dim: 9 cumulative energy: 0.9999999999915806
+FA test time:0.05562257766723633 dim: 9 cumulative energy: -1
